@@ -1,5 +1,7 @@
 # LoRa Emergency Communication System
 
+Developed as part of a team project at the University of Paderborn.
+
 Copyright 2022-2023 Dominik Delgado Steuter, Johannes Dorfschmidt, Jannik Lukas Hense, Darvin Schlüter, Alisa Stiballe
 
 ## Licensing
