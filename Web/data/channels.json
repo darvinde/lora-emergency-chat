@@ -1,0 +1,52 @@
+
+[
+  
+    {
+      "id": 0,
+      "name": "Server Broker",
+      "type": "channel",
+      "location": "51.6;8.4"
+    },
+    
+    {
+      "id": 1,
+      "name": "Hanau",
+      "type": "channel",
+      "location": "50.1264;8.9283"
+    },
+    
+    {
+      "id": 2,
+      "name": "Recklinghausen",
+      "type": "channel",
+      "location": "51.6141;7.1979"
+    },
+    
+    {
+      "id": 3,
+      "name": "Nürnberg",
+      "type": "channel",
+      "location": "49.4521;11.0767"
+    },
+    
+    {
+      "id": 4,
+      "name": "Rettungsdienst",
+      "type": "service",
+      "location": "51.2;8.3"
+    },
+    
+    {
+      "id": 5,
+      "name": "Feuerwehr",
+      "type": "service",
+      "location": "51.4;8.4"
+    },
+    
+    {
+      "id": 6,
+      "name": "Polizei",
+      "type": "service",
+      "location": "51.4;8.5"
+    }
+  ]

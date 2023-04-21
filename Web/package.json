@@ -1,0 +1,12 @@
+{
+    "name": "lora_webserver",
+    "version": "1.0.0",
+    "author": "Uni Paderborn",
+    "dependencies": {
+        "cookie-parser": "*",
+        "ejs": "*",
+        "express": "*",
+        "socket.io": "*",
+        "zeromq": "5.3.1"
+    }
+}

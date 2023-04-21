@@ -1,0 +1,255 @@
+/*
+ THEME STYLES
+ for theme: /x-default
+
+ CONTENT:
+ 0: VARIABLES
+ 1: LAYOUT
+ 2: MENU
+ 3: DARKMODE STYLES
+ 4: TYPOGRAPHY & FORMS
+ 5: CHAT
+*/
+
+
+/*
+ 0:
+ VARIABLES
+*/
+:root {
+  --main-bg-color: linear-gradient(27deg, rgba(0,142,255,1) 0%, rgba(0,168,255,0.7626400902157738) 100%);
+  --main-bg-color-nogradient-light: rgba(0,168,255,0.7626400902157738);
+  --main-bg-color-nogradient-dark: rgba(0,142,255,1);
+}
+
+
+
+/*
+ 1:
+ LAYOUT
+*/
+header {
+  background: var(--main-bg-color);
+  color: white;
+}
+.content {
+color: black;
+}
+
+
+
+
+
+.btn {
+  background: var(--main-bg-color);
+  border: 0;
+  filter: invert(0%);
+}
+
+header .btn{
+  padding: 15px;
+  background: url("curved-arrow-back-blue-icon.png") no-repeat center center;
+  background-color: var(--main-bg-color-nogradient-light);
+  background-size: 21px;
+}
+
+
+/*
+ 2:
+ MENU
+ The menu shown on /chat as the channel/node list
+*/
+
+
+/* 
+ 3:
+ DARKMODE STYLES
+*/
+.dark header{
+  filter: invert(100%);
+}
+.dark textarea, .dark input, .dark select {
+  filter: invert(100%)!important;
+}
+.dark #chat #chat_messages .self{
+  color: white;
+  filter: invert(100%);
+  background-color: var(--main-bg-color);
+}
+.dark #chat #chat_messages .stranger{
+  color: white;
+  filter: invert(100%);
+  background-color: var(--main-bg-color);
+}
+.dark #chat #chat_submit{
+  filter: invert(100%);
+}
+.dark #chat #chat_messages .error{
+	filter: invert(100%);
+}
+
+
+
+
+/*
+ 4:
+ TYPOGRAPHY & FORMS
+*/
+textarea, input, select {
+  color: white!important;
+  background: var(--main-bg-color)!important;
+  background-color: var(--main-bg-color-nogradient-dark)!important;
+  border: none;
+  border-radius: 20px;
+  padding: 13px;
+  resize: none;
+  outline: none;
+  font-size: 15px;
+  line-height: 1.4;
+}
+textarea {
+  width: 100%;
+}
+
+textarea::placeholder, input::placeholder, select {
+    color: white;
+}
+
+
+
+
+
+/*
+ 5:
+ CHAT
+ styles only for the /chat/:id: site
+*/
+#chat #bottom textarea {
+  margin: 10px;
+  margin-top: 5px;
+  width: calc(100% - 75px);
+}
+#chat ::-webkit-scrollbar {
+  width: 7px;
+}
+#chat ::-webkit-scrollbar-track {
+  background: transparent;
+}
+#chat ::-webkit-scrollbar-thumb {
+  background: #888;
+}
+#chat ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+#chat .content{
+  padding: 0;
+  background:none;
+}
+
+#chat {
+	color: black;
+	border-radius: 0px;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.1;
+  height: 100vh;
+}
+#chat *{
+  font-family: Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+
+#chat a {
+  color: white;
+}
+
+#chat #chat_messages {
+  overflow-y: scroll;
+  height:auto;
+  max-height: calc(100vh - 110px);
+}
+
+#chat #chat_messages > div{
+	border-top: 0px solid black;
+	padding: 3px;
+	border-radius: 10px;
+    width: max-content;
+	max-width: 90%;
+  min-width: 111px;
+    margin: 10px;
+    padding: 7px 10px 4px 10px;
+    white-space: pre-line;
+}
+
+#chat #chat_messages .time{
+  position: relative;
+  color: white;
+  float: right;
+  top: 7px;
+  right: -5px;
+}
+
+#chat #chat_messages .stranger{
+	color: white;
+	background: var(--main-bg-color);
+}
+#chat #chat_messages .name{
+  font-weight: bold;
+  display: block;
+}
+#chat #chat_messages .self{
+	color: white;
+	background: var(--main-bg-color);
+	margin-left: auto;
+}
+#chat #chat_messages .self .name{
+  display: none;
+}
+#chat #chat_messages .error{
+	color: white;
+	background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+#chat #chat_messages .status{
+	color: grey;
+}
+
+#chat #chat_submit {
+  width: 5px!important;
+  min-width: 43px!important;
+  height: 43px;
+  text-indent:-9999px;
+  border-radius: 100px;
+  margin-top: 5px;
+  background: url("mail-send-icon.png") no-repeat center center!important;
+  background-color: var(--main-bg-color-nogradient-light)!important;
+  background-size: 30px!important;
+  cursor: pointer;
+  border: none;
+	color: white;
+	font-size: 20px;
+}
+
+#chat #chat_submit:hover {
+  background-color: var(--main-bg-color-nogradient-dark);
+}
+
+#chat .chat_name {
+  background: white;
+	color: black!important;
+	border: none;
+  width: 100%;
+  padding: 13px;
+  outline: none;
+  width: 200px;
+  border-radius: 0;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  font-size: 15px;
+}
+
+#chat #service_form {
+  padding: 0 1em;
+}

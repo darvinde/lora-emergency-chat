@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+mariadb
+broker/node_modules
+broker/package-lock.json
+=======
+node_modules
+__pycache__
+>>>>>>> 1be4c2b264c7a34559e2287e85c8f07a5104f47f

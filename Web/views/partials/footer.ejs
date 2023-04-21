@@ -1,0 +1,14 @@
+<!--Settings from Backend-->
+<script>
+    settings =<%-JSON.stringify(settings)%>;
+ </script>
+
+<!--Theme settings-->
+<data id="themesettings" data-themename="<%= settings.theme %>"></data>
+<script type="module" src="/themes/<%= settings.theme %>/theme.js" media="all"></script>
+
+<!--Libraries-->
+<script src="/js/socket.io.min.js"></script>
+
+
+<!--Own files-->

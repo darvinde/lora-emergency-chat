@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <%- include('../partials/head'); %>
+   </head>
+   <body class="<%= settings.darkmode ? "dark" : "light" %>">
+      <div id="snow">
+      <div id="layout">
+         <div id="main">
+            <div id="chat">
+               <header>
+                  <div class="header-inner">
+
+                        <div>
+                           <div>
+                              <a class="btn" href="/" aria-placeholder="back"> </a>
+                           </div>
+                           <div>
+                              <h1><%= channel.name %> (<%= channel.id %>)</h1>
+                              <span><%= page.subtitle %></span>
+                           </div>
+                       </div>
+
+                  </div>
+               </header>
+               <div class="content">
+
+                  <% if (channel.type == 'service') { %>
+                     <%- include('../partials/service_form'); %>
+                  <% } %>
+
+                  <div id="chat_messages"></div>
+
+                  <form id="chat_form" method="post">
+                     <!--This will be filled with the chat messages-->
+                     <div id="bottom">
+                        <textarea id="textarea_message" placeholder="Enter your message" name="message" rows="1" maxlength="2222" style="height:47px;overflow-y:hidden;"></textarea>
+                        <input class="btn" id="chat_submit" type="submit" value="Submit">
+                     </div>
+
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </div>
+      
+      <footer>
+         <%- include('../partials/footer'); %>
+         <script>
+            channel =<%-JSON.stringify(channel)%>;
+         </script>
+         <script src="/js/chat.js"></script>
+      </footer>
+   </body>
+</html>

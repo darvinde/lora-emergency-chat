@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </html>
+
+  <body class="<%= settings.darkmode ? "dark" : "light" %>">
+
+    <div id="layout">
+
+      <div id="main">
+        
+        <header>
+          <div class="header-inner">
+            <h1><%= page.title %></h1>
+            <span><%= page.subtitle %></h2>
+          </div>
+        </header>
+
+        <div class="content">
+
+          <ul class="menu">
+            <% channels.forEach(function(channel) { %>
+              <li class="item channel <%= channel.type %>">
+                  <a href="/chat/<%= channel.id %>">
+                    <img src="/themes/<%= settings.theme %>/icons/<%= channel.type == 'service' ? channel.id : 'default' %>.png">
+                    <span>
+                      <b><%= channel.name %></b> <span>(<%= channel.id %>)</span>
+                      <br>Message
+                    </span>
+                  </a>
+              </li>
+            <% }); %>
+          </ul>
+
+          <a class="btn" href="/settings">Einstellungen</a>
+          <a class="btn" href="/map">Knoten Karte</a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+    
+
+    <footer>
+      <%- include('../partials/footer'); %>
+    </footer>
+
+   </body>
+</html>

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package emergency;
+
+message Main {
+  int32 sender_address = 1;
+  int32 receiver_address = 2;
+  string path = 3; // wird generiert auf dem Weg
+  string send_to_path = 4; // bei setup steht drin "<Path>;<Channel>" : sonst "<Path>"
+  int64 sender_time = 5;
+  string location = 6; // sender pi location
+  string name = 7;
+  int32 type = 8; // Typ 1 = BrotKaast; 2 = Setup; 3 = ChatMessage
+  
+  optional int32 end_receiver_address = 9;
+  optional string text = 10;
+}

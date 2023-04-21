@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </html>
+
+  <body class="<%= settings.darkmode ? "dark" : "light" %>">
+
+
+  <div id="layout">
+
+    <div id="main">
+
+      <header>
+        <div class="header-inner">
+          <h1><%= page.title %></h1>
+          <span><%= page.subtitle %></h2>
+        </div>
+      </header>
+
+        <div class="content">
+
+          <% if (typeof error !== 'undefined') { %>
+            <div class="error">
+                <%= error.msg %>
+            </div>
+          <% } %>
+
+          <form method="POST">
+            <fieldset>
+                <legend>Bitte gib die folgenden Daten ein, um auf den Chat zugreifen zu können:</legend>
+
+                <label for="username">Name</label>
+                <input type="text" name="username" id="username" placeholder="Enter your full name" value="<%= settings.username %>"/>
+
+                <label for="theme">Theme</label>
+                <select name="theme" id="theme">
+                    <% for(let [loopthemekey,looptheme] of Object.entries(themes)) { %>
+                        <option value="<%= loopthemekey %>" <%= loopthemekey == settings.theme ? "selected" : "" %> ><%= looptheme.name %></option>
+                    <% } %>
+                </select>
+
+                <label for="darkmode" class="pure-checkbox">
+                  <input <%= settings.darkmode ? "checked" : "" %> type="checkbox" id="darkmode" name="darkmode" /> Darkmode?
+                </label>
+
+                <label for="sound" class="pure-checkbox">
+                  <input <%= settings.sound ? "checked" : "" %> type="checkbox" id="sound" name="sound" /> Disable sound?
+                </label>
+
+                <!--
+                <label for="token">Zugangstoken für Rettungskräfte</label>
+                <input type="text" name="token" id="token" placeholder="Feld bitte leer lassen wenn nicht bekannt" value=""/>
+                <br><br>-->
+
+                <label for="channels_recv_all" class="pure-checkbox">
+                  Diese Option verringert die Übersichtlichkeit, bestenfalls nur aktivieren, wenn Sie Zugriff aus alle Knoten brauchen, z.B. Rettungskräfte:<br>
+                  <input <%= settings.channels_recv_all ? "checked" : "" %> type="checkbox" id="channels_recv_all" name="channels_recv_all" /> Nachrichten von allen Knoten erhalten
+                </label>
+
+                <br>
+
+                <button type="submit" class="btn">Speichern</button>
+            </fieldset>
+        </form>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+    <footer>
+      <%- include('../partials/footer'); %>
+    </footer>
+
+   </body>
+</html>

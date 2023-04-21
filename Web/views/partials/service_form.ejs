@@ -1,0 +1,33 @@
+<form id="service_form">
+    <fieldset>
+        <legend>Nicht jedes Feld muss ausgefüllt werden. Bitte so kurz wie möglich.</legend>
+        <div>
+
+            <div>
+                <label for="location">Hinweise zu Ihrem Standort.
+                Wir haben bereits die Koordinaten (<%= channel.location %>) Ihres LoRa Nodes.</label>
+                <textarea name="location" id="location" placeholder="Straße, Hausnummer, Ortbeschreibung, ..."></textarea>
+            </div>
+
+            <div>
+                <label for="description">Beschreiben Sie den Notfall</label>
+                <textarea name="description" id="description" placeholder="Was ist passiert? Notfallbeschreibung"></textarea>
+            </div>
+
+        </div>
+
+        <label for="type">Typ</label>
+        <select id="type" name="type">
+            <option value="">Bitte wählen</option>
+            <option value="Sonstiges">Sonstiges</option>
+            <option value="Verletzung">Verletzung</option>
+            <option value="Erkrankung">Erkrankung</option>
+        </select>
+        
+        <label for="persons">Anzahl betroffener Personen</label>
+        <input type="text" name="persons" id="persons" placeholder="Wenn unbekannt: Schätzen"/>
+
+        <br><br>
+        <button type="submit" class="btn">JETZT ABSCHICKEN</button>
+    </fieldset>
+</form>

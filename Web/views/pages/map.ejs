@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+
+    <link rel="stylesheet" href="/css/leaflet.css"/>
+    <script src="/js/leaflet.js"></script>
+
+    <style>
+        #map { 
+            height: 60vh; 
+        }
+    </style>
+
+  </html>
+
+  <body class="<%= settings.darkmode ? "dark" : "light" %>">
+
+    <div id="layout">
+
+      <div id="main">
+        
+        <header>
+          <div class="header-inner">
+            <h1><%= page.title %></h1>
+            <span><%= page.subtitle %></h2>
+          </div>
+        </header>
+
+        <div class="content">
+            <br>
+            Standorte der Knoten. Änderungen der Standorte werden eventuell in einer Krisensituation nicht übernommen.<br>
+            (Simulierte Standorte für Demo)<br>
+            <a class="btn" href="/">Zurück</a>
+            <br><br>
+
+            <div id="map"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    
+
+    <footer>
+
+      <%- include('../partials/footer'); %>
+    
+      <script>
+        // Read channels from backend
+        let channels = <%-JSON.stringify(channels)%> ;
+
+        // Create map
+        var map = L.map('map').setView([50,0], 3);
+
+        // Custom tileLayer (Offline)
+        L.tileLayer('/map/tiles/osm/{z}/{x}/{y}.png',{
+            minZoom: 0,
+            maxZoom: 15,
+            maxNativeZoom: 2 //I have downloaded maximum 2 layers
+        }).addTo(map);
+
+        // Loop all channels
+        let markers = [];
+        for (const [key, channel] of Object.entries(channels)) {
+            let [lon, lat] = channel.location.split(';');
+
+            // Create custom icon
+            let icon =  L.icon({
+                iconUrl: '/map/assets/lora_icon_large_round.png',
+                iconSize:     [40, 40], // size of the icon
+                iconAnchor:   [20, 20], // point of the icon which will correspond to marker's location
+
+                shadowUrl: `/themes/${settings.theme}/icons/${channel.type == 'service' ? channel.id : 'default'}.png`,
+                shadowSize:   [30, 30], // size of the shadow
+                shadowAnchor: [-5, -5],  // the same for the shadow
+            });
+
+            // Create marker and add to map
+            let marker = L.marker([lon,lat], {icon: icon}).addTo(map);
+            marker.bindPopup(`<b>${channel.name}</b><br><a href="/chat/${channel.id}">Chat öffnen</a><br><br>Lat: ${lat}<br>Lon: ${lon}`);
+
+            markers.push(marker);
+        }
+
+        // Make map fit all nodes
+        let group = new L.featureGroup(markers);
+        map.fitBounds(group.getBounds());
+
+
+      </script>
+    </footer>
+
+   </body>
+</html>
